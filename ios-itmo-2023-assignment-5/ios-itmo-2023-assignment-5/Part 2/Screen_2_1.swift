@@ -75,7 +75,7 @@ struct Screen_2_1: View {
                     .font(.system(size: 14))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(Color(.systemGray2))
-                    .padding(.bottom, 50)
+                    .padding(.bottom, 10)
                 
                 Spacer()
                 
@@ -120,17 +120,7 @@ struct ImageSlider: View {
                             .tag(index)
                     }
                 }
-                
-                HStack(spacing: 6) {
-                    ForEach(images.indices, id: \.self) { index in
-                        Circle()
-                            .fill(index == currentPage ? Color.gray : Color(.systemGray4) )
-                            .frame(width: 8, height: 8)
-                    }
-                }
-                .padding(.bottom, 6)
-                .frame(width: geometry.size.width, alignment: .center)
-                .offset(y: geometry.size.width / 2 - 70)
+                .tabViewStyle(PageTabViewStyle())
             }
         }
     }
